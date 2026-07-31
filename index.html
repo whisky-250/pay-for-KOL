@@ -3,296 +3,265 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>YPP达人首季结算阶段小结</title>
+  <title>YPP达人季度结算 - 阶段小结</title>
   <style>
     :root {
-      --ink: #143047;
-      --muted: #60717e;
-      --paper: #f4f2ec;
-      --white: #fffefa;
-      --teal: #087b73;
-      --teal-soft: #dff1ec;
-      --gold: #b77912;
-      --gold-soft: #fff0cc;
-      --red: #b64c38;
-      --red-soft: #fae7df;
-      --line: #d6d9d5;
+      --ink: #173042;
+      --muted: #647582;
+      --paper: #f7f5ef;
+      --surface: #fffdf8;
+      --line: #d9ded9;
+      --navy: #0f3e52;
+      --teal: #0f7771;
+      --gold: #c78a20;
+      --coral: #c95f49;
+      --green-bg: #e6f2ed;
+      --yellow-bg: #fff4d8;
+      --coral-bg: #fbe9e3;
     }
 
     * { box-sizing: border-box; }
 
-    html, body {
-      width: 1200px;
-      height: 1800px;
-      margin: 0;
-      overflow: hidden;
-    }
-
     body {
+      margin: 0;
       color: var(--ink);
       background:
-        linear-gradient(90deg, rgba(8, 123, 115, .08) 0 9px, transparent 9px),
-        repeating-linear-gradient(0deg, rgba(20, 48, 71, .025) 0 1px, transparent 1px 7px),
+        linear-gradient(115deg, rgba(15, 119, 113, .08), transparent 31%),
+        repeating-linear-gradient(0deg, rgba(23, 48, 66, .025) 0 1px, transparent 1px 6px),
         var(--paper);
       font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
     }
 
-    main {
-      height: 100%;
-      padding: 74px 78px 58px;
-    }
+    main { max-width: 1160px; margin: 0 auto; padding: 42px 28px 52px; }
 
     .topline {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding-bottom: 22px;
-      border-bottom: 2px solid var(--ink);
+      align-items: center;
+      gap: 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
       color: var(--muted);
-      font-size: 18px;
     }
 
-    .kicker {
+    .eyebrow {
       color: var(--teal);
+      letter-spacing: 1.2px;
       font-weight: 700;
-      letter-spacing: 0;
     }
 
     h1 {
-      margin: 44px 0 18px;
-      max-width: 940px;
-      color: var(--ink);
-      font-family: "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
-      font-size: 58px;
-      line-height: 1.18;
+      max-width: 880px;
+      margin: 42px 0 14px;
+      color: var(--navy);
+      font-size: 38px;
+      line-height: 1.25;
       letter-spacing: 0;
     }
 
     .lead {
+      max-width: 820px;
       margin: 0;
-      max-width: 930px;
-      color: #425c6b;
-      font-size: 23px;
-      line-height: 1.7;
+      color: #425965;
+      font-size: 17px;
+      line-height: 1.85;
     }
 
-    .result-band {
+    .rule {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      margin-top: 42px;
-      background: var(--ink);
-      border: 2px solid var(--ink);
+      grid-template-columns: 145px 1fr;
+      gap: 18px;
+      margin: 30px 0;
+      padding: 18px 20px;
+      border-left: 5px solid var(--gold);
+      background: var(--yellow-bg);
     }
 
-    .result {
-      min-height: 210px;
-      padding: 30px 34px;
-      background: var(--white);
-    }
-
-    .result .name {
-      color: var(--muted);
-      font-size: 19px;
-      font-weight: 700;
-    }
-
-    .result .amount {
-      margin: 16px 0 6px;
-      color: var(--ink);
-      font-family: "Bahnschrift", "Microsoft YaHei UI", sans-serif;
-      font-size: 52px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .result .usd {
-      color: var(--teal);
-      font-size: 20px;
-      font-weight: 700;
-    }
-
-    .fx {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 28px;
-      margin: 18px 0 0;
-      padding: 20px 26px;
-      color: #744b06;
-      background: var(--gold-soft);
-      border-left: 6px solid var(--gold);
-      font-size: 18px;
-      line-height: 1.5;
-    }
-
-    .fx strong { font-size: 24px; white-space: nowrap; }
+    .rule strong { color: #805408; }
+    .rule p { margin: 0; line-height: 1.7; }
 
     .section-title {
-      margin: 40px 0 16px;
-      color: var(--ink);
-      font-size: 22px;
+      margin: 38px 0 14px;
+      color: var(--navy);
+      font-size: 18px;
       font-weight: 700;
     }
 
-    .policy {
-      padding: 24px 28px;
-      color: #164f4b;
-      background: var(--teal-soft);
-      border-left: 6px solid var(--teal);
-      font-size: 22px;
-      line-height: 1.65;
-    }
-
-    .policy strong { color: #075f59; }
-
-    .status-table {
-      border-top: 2px solid var(--ink);
-      border-bottom: 2px solid var(--ink);
-      background: rgba(255, 254, 250, .82);
-    }
-
-    .status-row {
+    .cards {
       display: grid;
-      grid-template-columns: 190px 120px 1fr;
-      gap: 24px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      min-height: 188px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 6px;
+    }
+
+    .card .label { color: var(--muted); font-size: 13px; }
+    .card .number { margin: 10px 0 5px; color: var(--navy); font-size: 28px; font-weight: 700; }
+    .card .sub { color: #3f5a68; font-size: 14px; line-height: 1.65; }
+
+    .tag {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .done { color: #216149; background: var(--green-bg); }
+    .ongoing { color: #805408; background: var(--yellow-bg); }
+    .blocked { color: #9d3e2c; background: var(--coral-bg); }
+
+    .tracker {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 6px;
+    }
+
+    .track-row {
+      display: grid;
+      grid-template-columns: 180px 115px 1fr;
+      gap: 18px;
       align-items: center;
-      min-height: 104px;
-      padding: 20px 24px;
+      min-height: 64px;
+      padding: 14px 20px;
       border-bottom: 1px solid var(--line);
     }
 
-    .status-row:last-child { border-bottom: 0; }
-    .status-row h3 { margin: 0; font-size: 20px; }
-    .status-row p { margin: 0; color: #4d626f; font-size: 17px; line-height: 1.55; }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 36px;
-      padding: 6px 12px;
-      border-radius: 4px;
-      font-size: 15px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .done { color: #175b46; background: var(--teal-soft); }
-    .waiting { color: #835607; background: var(--gold-soft); }
-    .legal { color: #943c2b; background: var(--red-soft); }
+    .track-row:last-child { border-bottom: 0; }
+    .track-row strong { font-size: 15px; }
+    .track-row p { margin: 0; color: #48606c; font-size: 14px; line-height: 1.55; }
 
     .next {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 2px solid var(--ink);
-      border-bottom: 2px solid var(--ink);
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
     }
 
     .next-item {
-      min-height: 156px;
-      padding: 22px 24px;
-      border-right: 1px solid var(--line);
+      padding: 20px;
+      border-top: 3px solid var(--teal);
+      background: var(--surface);
     }
 
-    .next-item:last-child { border-right: 0; }
-    .next-item .num { color: var(--teal); font: 700 22px "Bahnschrift", sans-serif; }
-    .next-item h3 { margin: 10px 0 8px; font-size: 18px; }
-    .next-item p { margin: 0; color: #526674; font-size: 15px; line-height: 1.55; }
+    .next-item:nth-child(2) { border-top-color: var(--gold); }
+    .next-item:nth-child(3) { border-top-color: var(--coral); }
+    .next-item h3 { margin: 0 0 8px; font-size: 16px; }
+    .next-item p { margin: 0; color: #48606c; font-size: 14px; line-height: 1.65; }
 
     footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 40px;
-      margin-top: 28px;
-      padding-top: 18px;
+      margin-top: 36px;
+      padding-top: 16px;
       border-top: 1px solid var(--line);
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 760px) {
+      main { padding: 28px 18px 36px; }
+      .topline, .rule { display: block; }
+      .topline span:last-child { display: block; margin-top: 8px; }
+      h1 { margin-top: 30px; font-size: 30px; }
+      .cards, .next { grid-template-columns: 1fr; }
+      .track-row { grid-template-columns: 1fr; gap: 8px; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      main { max-width: none; padding: 20px; }
+      .card, .tracker, .next-item { break-inside: avoid; }
     }
   </style>
 </head>
 <body>
   <main>
-    <header>
-      <div class="topline">
-        <span class="kicker">阶段汇报｜YPP达人季度结算</span>
-        <span>截至 2026-07-31</span>
-      </div>
-      <h1>首季账单已闭环<br>进入开票与付款落地阶段</h1>
-      <p class="lead">皮蛋solo粥、刘一朵2026年3-5月收入核对及人民币折算均已完成；当前重点是补齐合同与票据条件。</p>
-    </header>
-
-    <section class="result-band" aria-label="结算结果">
-      <article class="result">
-        <div class="name">皮蛋solo粥｜3-5月应付</div>
-        <div class="amount">¥ 5,064.57</div>
-        <div class="usd">746.5680 USD</div>
-      </article>
-      <article class="result">
-        <div class="name">刘一朵｜3-5月应付</div>
-        <div class="amount">¥ 1,112.81</div>
-        <div class="usd">164.0400 USD</div>
-      </article>
-    </section>
-
-    <div class="fx">
-      <span>人民币统一按中国银行 7月28日美元现汇卖出价折算</span>
-      <strong>1 USD = 6.7838 RMB</strong>
+    <div class="topline">
+      <span class="eyebrow">阶段汇报｜YPP达人季度结算</span>
+      <span>截至 2026-07-31</span>
     </div>
 
-    <h2 class="section-title">统一处理口径</h2>
-    <section class="policy">
-      后续高级YPP达人统一由<strong>广州聚客付款</strong>，达人统一<strong>向聚客开票</strong>；正晔聚量不参与实际付款。
+    <h1>账单已闭环，付款正进入合同与票据落地阶段</h1>
+    <p class="lead">本周完成皮蛋solo粥、刘一朵首个3-5月结算周期的收入核对与人民币折算；聚客统一付款、统一收票的业务口径已确认。当前重点转向补充协议、开票资格和付款流程。</p>
+
+    <div class="rule">
+      <strong>已确认的统一口径</strong>
+      <p>后续高级YPP达人统一由广州聚客网络科技有限公司付款，并统一向聚客开票；正晔聚量不参与实际付款。</p>
+    </div>
+
+    <h2 class="section-title">结算结果</h2>
+    <section class="cards">
+      <article class="card">
+        <div class="label">皮蛋solo粥｜2026年3-5月</div>
+        <div class="number">¥5,064.57</div>
+        <div class="sub">746.5680 USD<br>账单与人民币折算已完成</div>
+        <span class="tag ongoing">协议回签与开票处理中</span>
+      </article>
+      <article class="card">
+        <div class="label">刘一朵｜2026年3-5月</div>
+        <div class="number">¥1,112.81</div>
+        <div class="sub">164.0400 USD<br>补充收入、CID与WHT已核对</div>
+        <span class="tag ongoing">待补充协议后推进</span>
+      </article>
+      <article class="card">
+        <div class="label">人民币折算依据</div>
+        <div class="number">6.7838</div>
+        <div class="sub">1 USD = 6.7838 RMB<br>中行 7月28日美元现汇卖出价</div>
+        <span class="tag done">已锁定</span>
+      </article>
     </section>
 
     <h2 class="section-title">当前进度</h2>
-    <section class="status-table">
-      <div class="status-row">
-        <h3>账单核对</h3>
+    <section class="tracker">
+      <div class="track-row">
+        <strong>收益与账单核对</strong>
         <span class="tag done">已完成</span>
-        <p>补充收入、CID收入归属和WHT均已核对，并已形成两位达人的交付账单。</p>
+        <p>两位达人3-5月账单、补充收入、CID归属、WHT及人民币金额均已形成可交付版本。</p>
       </div>
-      <div class="status-row">
-        <h3>皮蛋协议</h3>
-        <span class="tag done">已回寄</span>
-        <p>达人已完成四方补充协议签字盖章并寄出，后续跟进原件收齐。</p>
+      <div class="track-row">
+        <strong>皮蛋补充协议</strong>
+        <span class="tag ongoing">进行中</span>
+        <p>聚客、正晔已盖章，协议已寄往北京，待达人侧完成签字盖章并分别回寄。</p>
       </div>
-      <div class="status-row">
-        <h3>皮蛋开票</h3>
-        <span class="tag waiting">待财务确认</span>
-        <p>开票主体为小规模纳税人，需确认实际可开的发票类型、税率及项目后再正式开票。</p>
+      <div class="track-row">
+        <strong>皮蛋发票</strong>
+        <span class="tag blocked">待确认</span>
+        <p>财务已明确向聚客开票；但开票主体为小规模纳税人，实际可开税率需在对方开票系统确认后再由财务放行。</p>
       </div>
-      <div class="status-row">
-        <h3>刘一朵合同</h3>
-        <span class="tag legal">待法务</span>
-        <p>原合同未包含聚客，需补充聚客付款及收票安排后，再推进开票与付款。</p>
+      <div class="track-row">
+        <strong>刘一朵补充协议</strong>
+        <span class="tag blocked">待法务</span>
+        <p>现有合同未包含聚客，老板已确认需补充协议，明确聚客付款及收票安排后再开票付款。</p>
       </div>
     </section>
 
-    <h2 class="section-title">下一步</h2>
+    <h2 class="section-title">下一步要点</h2>
     <section class="next">
       <article class="next-item">
-        <span class="num">01</span>
-        <h3>完成皮蛋付款材料</h3>
-        <p>锁定开票口径，收齐协议、发票及流程附件。</p>
+        <h3>完成皮蛋票据与付款提交</h3>
+        <p>确认小规模主体可开票种及税率，收齐已签补充协议、合规发票和付款材料后提交系统。</p>
       </article>
       <article class="next-item">
-        <span class="num">02</span>
-        <h3>补充刘一朵协议</h3>
-        <p>请法务明确聚客付款、收票及签署安排。</p>
+        <h3>启动刘一朵补充协议</h3>
+        <p>由法务依据原合同主体结构起草补充文件，完成签署后再通知开票与付款。</p>
       </article>
       <article class="next-item">
-        <span class="num">03</span>
-        <h3>更新后续合同模板</h3>
-        <p>固化季度结算、聚客付款和达人开票规则。</p>
+        <h3>沉淀后续标准流程</h3>
+        <p>更新YPP达人合同模板，固化聚客付款、收票和季度结算安排，减少逐人补协议。</p>
       </article>
     </section>
 
     <footer>
-      <span>数据依据：Joincom/MCN账单、达人结算明细及内部确认记录</span>
-      <span>本页用于阶段汇报</span>
+      数据依据：3-5月Joincom/MCN账单、达人结算明细、老板及财务确认记录。<br>
+      本页用于阶段展示；详细过程、风险说明和汇报口头稿见配套Markdown文档。
     </footer>
   </main>
 </body>
